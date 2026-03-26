@@ -77,7 +77,7 @@
                 </div>
 
                 <!-- Mobile Toggle -->
-                <button id="mobile-menu-btn" class="md:hidden p-2 text-timesdark focus:outline-none">
+                <button id="mobile-nav-btn" class="md:hidden p-2 text-timesdark focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                     </svg>
@@ -86,7 +86,7 @@
         </nav>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-white border-b border-gray-100 shadow-lg px-6 py-6 flex flex-col gap-4 md:hidden">
+        <div id="mobile-nav-menu" class="hidden absolute top-20 left-0 w-full bg-white border-b border-gray-100 shadow-lg px-6 py-6 flex flex-col gap-4 md:hidden">
             <a href="#impact" class="text-base font-medium text-gray-600">Our Impact</a>
             <a href="#solutions" class="text-base font-medium text-gray-600">CSR Solutions</a>
             <a href="#process" class="text-base font-medium text-gray-600">Our Process</a>
@@ -249,56 +249,49 @@
         </section>
 
         <!-- ════════════════════════════════════════════
-             SECTION 2 — OUR IMPACT
+             SECTION 2 — OUR IMPACT (id="impact")
              ════════════════════════════════════════════ -->
-        <section id="impact" class="bg-csrwarm py-24 relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                
+        <section id="impact" class="bg-csrwarm py-24 border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <!-- Section Header -->
                 <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll opacity-0 translate-y-8">
                     <div class="flex items-center justify-center gap-3 mb-5">
                         <span class="w-8 h-[3px] bg-csrgreen rounded-full"></span>
-                        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-csrgreen">Our Impact</span>
+                        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-csrgreen">Our Scale</span>
                         <span class="w-8 h-[3px] bg-csrgreen rounded-full"></span>
                     </div>
-                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-timesdark leading-tight mb-6 font-display">
-                        Measurable Change. <span class="text-csrgreen">Millions of Lives.</span>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-timesdark leading-tight font-display mb-6">
+                        Nationwide Presence. <span class="text-csrgreen">Institutional Impact.</span>
                     </h2>
-                    <p class="text-gray-500 text-lg">
-                        We don't just implement programmes; we translate your CSR mandate into validated social capital through rigorous monitoring and outcome-based delivery.
-                    </p>
+                    <p class="text-gray-500 text-lg">We bridge the gap between corporate intent and on-ground transformation at scale. Backed by the legacy of the Times Group.</p>
                 </div>
 
                 <!-- 5-Stat Strip -->
-                <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700">
-                    <div class="bg-white border border-timesslate/30 rounded-3xl py-12 px-8 shadow-xl shadow-csrgreen/5">
-                        <div class="grid grid-cols-2 lg:grid-cols-5 gap-y-12 lg:gap-0 text-center">
-                            <!-- Stat 1 -->
-                            <div class="lg:border-r border-gray-100 px-4">
-                                <span class="counter-csr font-display font-bold text-4xl text-csrgreen block mb-2" data-target="200" data-suffix="+">0</span>
-                                <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Companies Partnered</span>
-                            </div>
-                            <!-- Stat 2 -->
-                            <div class="lg:border-r border-gray-100 px-4">
-                                <span class="counter-csr font-display font-bold text-4xl text-csrgreen block mb-2" data-target="3.3" data-display="3.3 Million+">3.3 Million+</span>
-                                <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Lives Impacted</span>
-                            </div>
-                            <!-- Stat 3 -->
-                            <div class="lg:border-r border-gray-100 px-4">
-                                <span class="counter-csr font-display font-bold text-4xl text-csrgreen block mb-2" data-target="1500" data-suffix="+">0</span>
-                                <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Programmes Delivered</span>
-                            </div>
-                            <!-- Stat 4 -->
-                            <div class="lg:border-r border-gray-100 px-4">
-                                <span class="counter-csr font-display font-bold text-4xl text-csrgreen block mb-2" data-target="28" data-suffix="">0</span>
-                                <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">States Covered</span>
-                            </div>
-                            <!-- Stat 5 -->
-                            <div class="px-4">
-                                <span class="counter-csr font-display font-bold text-4xl text-csrgreen block mb-2" data-target="100000" data-suffix="+">0</span>
-                                <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Beneficiaries Annually</span>
-                            </div>
-                        </div>
+                <div class="bg-white rounded-2xl border border-gray-100 shadow-sm grid grid-cols-2 md:grid-cols-5 mt-12 overflow-hidden reveal-on-scroll opacity-0 translate-y-8">
+                    <!-- Stat 1 -->
+                    <div class="p-8 text-center border-r border-b md:border-b-0 border-gray-100">
+                        <div class="counter-csr text-4xl font-bold font-display text-csrgreen mb-2" data-target="200" data-suffix="+" data-display="[---]">0</div>
+                        <p class="text-[10px] uppercase font-bold tracking-widest text-gray-400">Companies Partnered</p>
+                    </div>
+                    <!-- Stat 2 -->
+                    <div class="p-8 text-center border-r border-b md:border-b-0 border-gray-100">
+                        <div class="counter-csr text-4xl font-bold font-display text-csrgreen mb-2" data-target="3.3" data-suffix=" Million+" data-display="3.3 Million+">3.3 Million+</div>
+                        <p class="text-[10px] uppercase font-bold tracking-widest text-gray-400">Lives Impacted</p>
+                    </div>
+                    <!-- Stat 3 -->
+                    <div class="p-8 text-center border-r border-b sm:border-b-0 border-gray-100">
+                        <div class="counter-csr text-4xl font-bold font-display text-csrgreen mb-2" data-target="500" data-suffix="+" data-display="[---]">0</div>
+                        <p class="text-[10px] uppercase font-bold tracking-widest text-gray-400">CSR Programmes Delivered</p>
+                    </div>
+                    <!-- Stat 4 -->
+                    <div class="p-8 text-center border-r border-gray-100">
+                        <div class="counter-csr text-4xl font-bold font-display text-csrgreen mb-2" data-target="28" data-suffix="" data-display="[---]">0</div>
+                        <p class="text-[10px] uppercase font-bold tracking-widest text-gray-400">States Covered</p>
+                    </div>
+                    <!-- Stat 5 -->
+                    <div class="p-8 text-center">
+                        <div class="counter-csr text-4xl font-bold font-display text-csrgreen mb-2" data-target="150000" data-suffix="+" data-display="[---]">0</div>
+                        <p class="text-[10px] uppercase font-bold tracking-widest text-gray-400">Beneficiaries Trained Annually</p>
                     </div>
                 </div>
             </div>
@@ -477,37 +470,501 @@
             </div>
         </section>
 
+        <!-- ════════════════════════════════════════════
+             SECTION 5 — HOW IT WORKS
+             ════════════════════════════════════════════ -->
+        <section id="process" class="bg-white py-24 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll opacity-0 translate-y-8">
+                    <div class="flex items-center justify-center gap-3 mb-5">
+                        <span class="w-8 h-[3px] bg-csrgreen rounded-full"></span>
+                        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-csrgreen">Our Process</span>
+                        <span class="w-8 h-[3px] bg-csrgreen rounded-full"></span>
+                    </div>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-timesdark leading-tight font-display">
+                        Purposeful. Structured. <span class="text-csrgreen">Accountable.</span>
+                    </h2>
+                </div>
+
+                <!-- Interactive Timeline (Desktop) / Cards (Mobile) -->
+                <div class="process-grid relative grid grid-cols-1 md:grid-cols-4 gap-8 mt-16 reveal-on-scroll opacity-0 translate-y-8">
+                    <!-- Step 1 -->
+                    <div class="process-step text-center relative cursor-pointer group" data-step="1">
+                        <div class="step-number-circle w-14 h-14 rounded-full bg-csrgreen text-white font-bold text-xl flex items-center justify-center mx-auto relative z-10 shadow-lg group-hover:scale-110 transition-all duration-300">1</div>
+                        <div class="process-icon-wrapper mt-4 mb-3">
+                            <svg class="w-8 h-8 text-csrgreen mx-auto" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-lg text-timesdark mt-2">Consult</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed mt-2">We start by understanding your organisation's goals, workforce challenges, and learning gaps — not by pitching a product.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="process-step text-center relative cursor-pointer group" data-step="2" style="transition-delay: 150ms">
+                        <div class="step-number-circle w-14 h-14 rounded-full bg-csrgreen text-white font-bold text-xl flex items-center justify-center mx-auto relative z-10 shadow-lg group-hover:scale-110 transition-all duration-300">2</div>
+                        <div class="process-icon-wrapper mt-4 mb-3">
+                            <svg class="w-8 h-8 text-csrgreen mx-auto" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-lg text-timesdark mt-2">Design</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed mt-2">Our instructional architects and CSR specialists co-create a solution aligned to your mandate, culture, and target outcomes.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="process-step text-center relative cursor-pointer group" data-step="3" style="transition-delay: 300ms">
+                        <div class="step-number-circle w-14 h-14 rounded-full bg-csrgreen text-white font-bold text-xl flex items-center justify-center mx-auto relative z-10 shadow-lg group-hover:scale-110 transition-all duration-300">3</div>
+                        <div class="process-icon-wrapper mt-4 mb-3">
+                            <svg class="w-8 h-8 text-csrgreen mx-auto" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.96 5.96m0 0L2.25 21l.75-7.5 7.38-7.38m0 0a14.98 14.98 0 008.232-2.122 14.981 14.981 0 00-2.122 8.232m-5.96 5.96c.245.245.591.33.911.233z" />
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-lg text-timesdark mt-2">Deliver</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed mt-2">Seamless on-ground execution across diverse formats with dedicated programme management from our specialized CSR wing.</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="process-step text-center relative cursor-pointer group" data-step="4" style="transition-delay: 450ms">
+                        <div class="step-number-circle w-14 h-14 rounded-full bg-csrgreen text-white font-bold text-xl flex items-center justify-center mx-auto relative z-10 shadow-lg group-hover:scale-110 transition-all duration-300">4</div>
+                        <div class="process-icon-wrapper mt-4 mb-3">
+                            <svg class="w-8 h-8 text-csrgreen mx-auto" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-lg text-timesdark mt-2">Measure</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed mt-2">Impact-first reporting with customised ROI frameworks, learner analytics, and transparency for your board reports.</p>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12 reveal-on-scroll opacity-0 translate-y-8">
+                    <a href="#contact" class="text-csrgreen font-semibold text-lg hover:underline decoration-2 underline-offset-8">Let's Design Your CSR Programme →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════
+             SECTION 6 — WHY TIMESPRO FOR CSR
+             ════════════════════════════════════════════ -->
+        <section id="why-us" class="bg-csrwarm py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll opacity-0 translate-y-8">
+                    <div class="flex items-center justify-center gap-3 mb-5">
+                        <span class="w-8 h-[3px] bg-csrgreen rounded-full"></span>
+                        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-csrgreen">The TimesPro Advantage</span>
+                        <span class="w-8 h-[3px] bg-csrgreen rounded-full"></span>
+                    </div>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-timesdark leading-tight font-display">
+                        Implementation Expertise. Ground-Level Reach. <span class="text-csrgreen">Outcomes You Can Report.</span>
+                    </h2>
+                </div>
+
+                <!-- 5 Image-Top Tiles (3+2 Grid) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                    <!-- Tile 1 -->
+                    <div class="reveal-on-scroll opacity-0 translate-y-8 bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm transition-all duration-500 hover:shadow-lg" style="transition-delay: 0ms">
+                        <div class="h-44">
+                            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=300" alt="Partnerships" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-8 text-center sm:text-left">
+                            <h3 class="font-display font-bold text-xl text-timesdark mb-3">Institutional-Grade Partnerships</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed">Collaborations with India's best learning institutions ensure the highest standard of educational delivery for your CSR mandate.</p>
+                        </div>
+                    </div>
+                    <!-- Tile 2 -->
+                    <div class="reveal-on-scroll opacity-0 translate-y-8 bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm transition-all duration-500 hover:shadow-lg" style="transition-delay: 150ms">
+                        <div class="h-44">
+                            <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=600&h=300" alt="Scale" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-8 text-center sm:text-left">
+                            <h3 class="font-display font-bold text-xl text-timesdark mb-3">Scale That Matches Yours</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed">From single-district pilots to pan-India rollouts, our infrastructure is built to scale your impact across geographies effortlessly.</p>
+                        </div>
+                    </div>
+                    <!-- Tile 3 -->
+                    <div class="reveal-on-scroll opacity-0 translate-y-8 bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm transition-all duration-500 hover:shadow-lg" style="transition-delay: 300ms">
+                        <div class="h-44">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&h=300" alt="Tech" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-8 text-center sm:text-left">
+                            <h3 class="font-display font-bold text-xl text-timesdark mb-3">Tech-Enabled Learning</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed">Leverage our Direct-to-Device (D2D) platform to reach the remotest corners of India with high-quality digital education and skilling.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Tile 4 -->
+                    <div class="reveal-on-scroll opacity-0 translate-y-8 bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm transition-all duration-500 hover:shadow-lg" style="transition-delay: 450ms">
+                        <div class="h-44">
+                            <img src="https://images.unsplash.com/photo-1524178232363-1fb28f74b50a?auto=format&fit=crop&q=80&w=600&h=300" alt="Practitioners" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-8 text-center sm:text-left">
+                            <h3 class="font-display font-bold text-xl text-timesdark mb-3">Faculty & Practitioners</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed">Courses are delivered by industry practitioners and eminent faculty, ensuring practical skill development and employability outcomes.</p>
+                        </div>
+                    </div>
+                    <!-- Tile 5 -->
+                    <div class="reveal-on-scroll opacity-0 translate-y-8 bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-lg" style="transition-delay: 600ms">
+                        <div class="h-44">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600&h=300" alt="ROI" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-8 text-center sm:text-left">
+                            <h3 class="font-display font-bold text-xl text-timesdark mb-3">Measurable ROI</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed">We provide comprehensive reporting and impact studies, enabling you to track every rupee from investment to social output.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quote Block -->
+                <div class="mt-16 reveal-on-scroll opacity-0 translate-y-8">
+                    <div class="bg-csrgreen text-white rounded-2xl p-10 text-center shadow-xl shadow-csrgreen/20">
+                        <p class="font-medium text-xl italic leading-relaxed">
+                            "Trusted by India's leading organisations to deliver CSR that goes beyond compliance — and creates communities that thrive."
+                        </p>
+                    </div>
+                    <a href="#impact" class="text-csrgreen font-semibold text-center block mt-8 hover:underline underline-offset-4">See Our Impact Stories →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════
+             SECTION 7 — CSR PARTNERS
+             ════════════════════════════════════════════ -->
+        <section id="partners" class="bg-white py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="text-xs font-bold uppercase tracking-[0.3em] text-gray-400 mb-4 block">Our Partners</span>
+                    <h2 class="font-heading font-extrabold text-2xl sm:text-3xl text-timesdark">Organisations That Trust Us to Deliver Their CSR Mandate</h2>
+                </div>
+
+                <div class="marquee-container relative overflow-hidden py-10 opacity-70">
+                    <div class="marquee-content flex items-center min-w-max" style="animation: marquee 30s linear infinite;">
+                        <!-- SET 1 -->
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl px-10 py-5 mx-6 text-gray-400 font-semibold text-sm">Partner Logo</div>
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl px-10 py-5 mx-6 text-gray-400 font-semibold text-sm">Partner Logo</div>
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl px-10 py-5 mx-6 text-gray-400 font-semibold text-sm">Partner Logo</div>
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl px-10 py-5 mx-6 text-gray-400 font-semibold text-sm">Partner Logo</div>
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl px-10 py-5 mx-6 text-gray-400 font-semibold text-sm">Partner Logo</div>
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl px-10 py-5 mx-6 text-gray-400 font-semibold text-sm">Partner Logo</div>
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl px-10 py-5 mx-6 text-gray-400 font-semibold text-sm">Partner Logo</div>
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl px-10 py-5 mx-6 text-gray-400 font-semibold text-sm">Partner Logo</div>
+                        <!-- SET 2 -->
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl px-10 py-5 mx-6 text-gray-400 font-semibold text-sm">Partner Logo</div>
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl px-10 py-5 mx-6 text-gray-400 font-semibold text-sm">Partner Logo</div>
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl px-10 py-5 mx-6 text-gray-400 font-semibold text-sm">Partner Logo</div>
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl px-10 py-5 mx-6 text-gray-400 font-semibold text-sm">Partner Logo</div>
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl px-10 py-5 mx-6 text-gray-400 font-semibold text-sm">Partner Logo</div>
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl px-10 py-5 mx-6 text-gray-400 font-semibold text-sm">Partner Logo</div>
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl px-10 py-5 mx-6 text-gray-400 font-semibold text-sm">Partner Logo</div>
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl px-10 py-5 mx-6 text-gray-400 font-semibold text-sm">Partner Logo</div>
+                    </div>
+                </div>
+
+                <p class="text-xs text-gray-400 text-center mt-4 italic">* CSR partner logos to be added upon confirmation</p>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════
+             SECTION 8 — IMPACT STORIES
+             ════════════════════════════════════════════ -->
+        <section id="impact-stories" class="bg-csrwarm py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll opacity-0 translate-y-8">
+                    <div class="flex items-center justify-center gap-3 mb-5">
+                        <span class="w-8 h-[3px] bg-csrgreen rounded-full"></span>
+                        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-csrgreen">Impact Stories</span>
+                        <span class="w-8 h-[3px] bg-csrgreen rounded-full"></span>
+                    </div>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-timesdark leading-tight font-display mb-6">
+                        Real Programmes. <span class="text-csrgreen">Real Change.</span>
+                    </h2>
+                </div>
+
+                <!-- Tabbed Case Studies -->
+                <div class="flex flex-wrap gap-4 justify-center mb-12 reveal-on-scroll opacity-0 translate-y-8" id="story-tabs">
+                    <button class="story-tab active" data-tab="1">Education</button>
+                    <button class="story-tab" data-tab="2">Women Empowerment</button>
+                    <button class="story-tab" data-tab="3">Employability</button>
+                </div>
+
+                <div class="max-w-4xl mx-auto reveal-on-scroll opacity-0 translate-y-8">
+                    <!-- Panel 1: Education -->
+                    <div class="story-panel animate-fade-in" id="panel-1">
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 p-6 sm:p-10">
+                            <div class="aspect-video bg-gray-200 rounded-2xl w-full mb-8 flex items-center justify-center relative group cursor-pointer overflow-hidden">
+                                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all flex items-center justify-center">
+                                    <div class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center text-csrgreen group-hover:scale-110 transition-transform">
+                                        <svg class="w-8 h-8 translate-x-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+                                    </div>
+                                </div>
+                                <span class="text-gray-400 font-medium">Programme Launch Video Placeholder</span>
+                            </div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div>
+                                    <h3 class="font-display font-bold text-2xl text-timesdark mb-2">Digital Literacy in Rural Districts</h3>
+                                    <p class="text-gray-400 italic">Uttar Pradesh, 2024</p>
+                                </div>
+                                <span class="inline-flex bg-csrgreen/10 text-csrgreen text-xs font-bold px-4 py-2 rounded-full self-start">Case Study Coming Soon</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Panel 2: Women (Hidden) -->
+                    <div class="story-panel hidden animate-fade-in" id="panel-2">
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 p-6 sm:p-10">
+                            <div class="aspect-video bg-gray-200 rounded-2xl w-full mb-8 flex items-center justify-center">
+                                <span class="text-gray-400 font-medium whitespace-pre text-center">Video Interview with Beneficiaries\nPlaceholder</span>
+                            </div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div>
+                                    <h3 class="font-display font-bold text-2xl text-timesdark mb-2">Livelihood for Women Entrepreneurs</h3>
+                                    <p class="text-gray-400 italic">Maharashtra, 2024</p>
+                                </div>
+                                <span class="inline-flex bg-csrgreen/10 text-csrgreen text-xs font-bold px-4 py-2 rounded-full self-start">Case Study Coming Soon</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Panel 3: Youth (Hidden) -->
+                    <div class="story-panel hidden animate-fade-in" id="panel-3">
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 p-6 sm:p-10">
+                            <div class="aspect-video bg-gray-200 rounded-2xl w-full mb-8 flex items-center justify-center">
+                                <span class="text-gray-400 font-medium">Vocational Training Showcase Video Placeholder</span>
+                            </div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div>
+                                    <h3 class="font-display font-bold text-2xl text-timesdark mb-2">Employability Express Programme</h3>
+                                    <p class="text-gray-400 italic">Karnataka, 2024</p>
+                                </div>
+                                <span class="inline-flex bg-csrgreen/10 text-csrgreen text-xs font-bold px-4 py-2 rounded-full self-start">Case Study Coming Soon</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════
+             SECTION 9 — FAQs
+             ════════════════════════════════════════════ -->
+        <section id="faqs" class="bg-white py-24">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="text-center mb-16 reveal-on-scroll opacity-0 translate-y-8">
+                    <div class="flex items-center justify-center gap-3 mb-5">
+                        <span class="w-8 h-[3px] bg-csrgreen rounded-full"></span>
+                        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-csrgreen">FAQs</span>
+                        <span class="w-8 h-[3px] bg-csrgreen rounded-full"></span>
+                    </div>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-timesdark leading-tight font-display mb-6">
+                        Frequently Asked <span class="text-csrgreen">Questions.</span>
+                    </h2>
+                </div>
+
+                <!-- JS Accordion -->
+                <div class="space-y-2 reveal-on-scroll opacity-0 translate-y-8">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item border-b border-gray-100 py-6">
+                        <button class="faq-question w-full flex justify-between items-center text-left font-semibold text-timesdark text-xl cursor-pointer hover:text-csrgreen transition-colors py-2 group">
+                            <span>What is the typical duration for setting up a CSR programme?</span>
+                            <span class="faq-icon text-3xl text-csrgreen/50 group-hover:text-csrgreen font-light transition-all duration-300 transform">+</span>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                            <p class="text-gray-500 leading-relaxed pt-4 pb-2 text-lg">Depending on the mandate's complexity and location, our implementation window typically ranges from 4 to 8 weeks — from baseline study to programme launch.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ 2 -->
+                    <div class="faq-item border-b border-gray-100 py-6">
+                        <button class="faq-question w-full flex justify-between items-center text-left font-semibold text-timesdark text-xl cursor-pointer hover:text-csrgreen transition-colors py-2 group">
+                            <span>Can you help with the baseline study and impact assessment?</span>
+                            <span class="faq-icon text-3xl text-csrgreen/50 group-hover:text-csrgreen font-light transition-all duration-300 transform">+</span>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                            <p class="text-gray-500 leading-relaxed pt-4 pb-2 text-lg">Yes, we provide end-to-end support, including initial need assessments, baseline studies during the design phase, and detailed impact evaluation reports at the end of the programme cycle.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ 3 -->
+                    <div class="faq-item border-b border-gray-100 py-6">
+                        <button class="faq-question w-full flex justify-between items-center text-left font-semibold text-timesdark text-xl cursor-pointer hover:text-csrgreen transition-colors py-2 group">
+                            <span>Are your courses certified?</span>
+                            <span class="faq-icon text-3xl text-csrgreen/50 group-hover:text-csrgreen font-light transition-all duration-300 transform">+</span>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                            <p class="text-gray-500 leading-relaxed pt-4 pb-2 text-lg">Absolutely. All our programmes are certified by premier institutions or TimesPro, ensuring that beneficiaries receive credentials that add genuine value to their employability profile.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ 4 -->
+                    <div class="faq-item border-b border-gray-100 py-6">
+                        <button class="faq-question w-full flex justify-between items-center text-left font-semibold text-timesdark text-xl cursor-pointer hover:text-csrgreen transition-colors py-2 group">
+                            <span>Do you offer hybrid implementation?</span>
+                            <span class="faq-icon text-3xl text-csrgreen/50 group-hover:text-csrgreen font-light transition-all duration-300 transform">+</span>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                            <p class="text-gray-500 leading-relaxed pt-4 pb-2 text-lg">Yes, we support virtual, in-person classroom, and blended formats. Our Direct-to-Device (D2D) technology specifically allows us to deliver high-quality learning to remote areas with minimal local infrastructure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ════════════════════════════════════════════
+             SECTION 10 — FINAL CTA + FORM
+             ════════════════════════════════════════════ -->
+        <section id="contact" class="bg-csrgreen py-24 relative overflow-hidden">
+            <!-- Decorative Pattern -->
+            <div class="absolute inset-0 opacity-10 bg-grid-pattern pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    
+                    <!-- CTA Copy -->
+                    <div class="reveal-on-scroll opacity-0 translate-y-8">
+                        <span class="text-white/60 font-semibold uppercase tracking-widest text-xs mb-6 block">Get Started</span>
+                        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-tight font-display mb-8">
+                            Your CSR Budget Has the Power to <span class="text-csrwarm/40">Change Lives.</span> Let's Make Sure It Does.
+                        </h2>
+                        <p class="text-white/80 text-lg leading-relaxed mb-10 max-w-xl">
+                            Tell us about your CSR mandate, focus areas, and target communities. Our team will design a programme that delivers impact you can measure, report, and be proud of.
+                        </p>
+                        
+                        <!-- Reassurance Strip -->
+                        <div class="flex flex-wrap gap-x-8 gap-y-6 mt-12 pt-12 border-t border-white/10 text-white">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-white/40" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                <span class="text-sm font-medium">180+ Years of Times Group Legacy</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-white/40" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                <span class="text-sm font-medium">3.3 Million+ Lives Impacted</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-white/40" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                <span class="text-sm font-medium">Registered with NSDC</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-white/40" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                <span class="text-sm font-medium">Pan-India Implementation Capability</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single View Contact Form -->
+                    <div class="reveal-on-scroll opacity-0 translate-y-8 bg-white rounded-2xl p-8 lg:p-10 shadow-2xl border border-white/20">
+                        <form id="contact-form" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div class="space-y-2">
+                                    <label class="text-xs font-bold uppercase tracking-widest text-gray-400">Full Name</label>
+                                    <input type="text" name="full_name" required placeholder="John Doe" class="block w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl focus:ring-2 focus:ring-csrgreen focus:bg-white outline-none transition-all">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-xs font-bold uppercase tracking-widest text-gray-400">Work Email</label>
+                                    <input type="email" name="work_email" required placeholder="john@company.com" class="block w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl focus:ring-2 focus:ring-csrgreen focus:bg-white outline-none transition-all">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-xs font-bold uppercase tracking-widest text-gray-400">Organisation</label>
+                                    <input type="text" name="organisation" required placeholder="Company Name" class="block w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl focus:ring-2 focus:ring-csrgreen focus:bg-white outline-none transition-all">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-xs font-bold uppercase tracking-widest text-gray-400">Phone</label>
+                                    <input type="tel" name="phone" required placeholder="+91 XXXXX XXXXX" class="block w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl focus:ring-2 focus:ring-csrgreen focus:bg-white outline-none transition-all">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-xs font-bold uppercase tracking-widest text-gray-400">Designation</label>
+                                    <input type="text" name="designation" required placeholder="e.g. CSR Head" class="block w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl focus:ring-2 focus:ring-csrgreen focus:bg-white outline-none transition-all">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-xs font-bold uppercase tracking-widest text-gray-400">CSR Budget Range</label>
+                                    <select name="budget" required class="block w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl focus:ring-2 focus:ring-csrgreen focus:bg-white outline-none transition-all appearance-none cursor-pointer">
+                                        <option value="" disabled selected>Select Budget</option>
+                                        <option value="below-50l">Below ₹50 Lakhs</option>
+                                        <option value="50l-1cr">₹50 Lakhs - ₹1 Crore</option>
+                                        <option value="1cr-5cr">₹1 Crore - ₹5 Crores</option>
+                                        <option value="above-5cr">Above ₹5 Crores</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold uppercase tracking-widest text-gray-400">Primary CSR Focus Area</label>
+                                <select name="focus_area" required class="block w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl focus:ring-2 focus:ring-csrgreen focus:bg-white outline-none transition-all appearance-none cursor-pointer">
+                                    <option value="" disabled selected>Select Area</option>
+                                    <option value="education">Education & Literacy</option>
+                                    <option value="women">Women Empowerment</option>
+                                    <option value="youth">Youth & Employability</option>
+                                    <option value="entrepreneurship">Entrepreneurship Development</option>
+                                    <option value="health">Healthcare & Nutrition</option>
+                                </select>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold uppercase tracking-widest text-gray-400">Tell us about your CSR goals</label>
+                                <textarea name="message" rows="3" placeholder="Describe your mandate or specific requirements..." class="block w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl focus:ring-2 focus:ring-csrgreen focus:bg-white outline-none transition-all resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-csrgreen hover:bg-csrgreen/90 text-white font-bold py-4 rounded-xl transition-all shadow-lg hover:shadow-csrgreen/20 transform hover:-translate-y-1">
+                                Request a Free Consultation
+                            </button>
+                            <p class="text-[10px] text-center text-gray-400 font-medium uppercase tracking-[0.1em]">
+                                No commitment required. Our CSR team will get back to you within 24 hours.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-8 right-8 bg-csrgreen text-white px-8 py-5 rounded-2xl shadow-2xl z-[100] translate-x-[200%] transition-transform duration-500 flex items-center gap-4">
-        <svg class="w-6 h-6 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-        <p class="font-bold">✓ Request received! We'll reach out within 24 hours.</p>
-    </div>
+    <!-- ════════════════════════════════════════════
+         FOOTER
+         ════════════════════════════════════════════ -->
+    <footer class="bg-timesdark text-gray-300 pt-16 pb-12 border-t-2 border-csrgreen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Row 1: Logo & Nav -->
+            <div class="flex flex-col md:flex-row justify-between items-center gap-10 pb-12 border-b border-gray-800">
+                <a href="#" class="flex items-center">
+                    <img src="https://timespro.com/icons/Timespro_logo.svg" alt="TimesPro" class="h-8 w-auto" style="filter: brightness(0) invert(1);">
+                    <span class="ml-3 text-csrgreen text-xs font-bold uppercase tracking-widest border-l border-white/20 pl-3">CSR</span>
+                </a>
+                
+                <nav class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+                    <a href="#impact" class="text-sm font-medium hover:text-white transition-colors">Our Impact</a>
+                    <a href="#solutions" class="text-sm font-medium hover:text-white transition-colors">CSR Solutions</a>
+                    <a href="#process" class="text-sm font-medium hover:text-white transition-colors">Our Process</a>
+                    <a href="#why-us" class="text-sm font-medium hover:text-white transition-colors">Why Us</a>
+                    <a href="#contact" class="text-sm font-medium hover:text-white transition-colors">Get Started</a>
+                </nav>
+
+                <a href="#contact" class="bg-csrgreen hover:bg-csrgreen/90 text-white text-sm font-bold px-6 py-2.5 rounded-full transition-all whitespace-nowrap">
+                    Talk to Our CSR Team
+                </a>
+            </div>
+
+            <!-- Row 2: Copyright & Legal -->
+            <div class="flex flex-col md:flex-row justify-between items-center pt-8 gap-6 text-xs text-gray-500 font-medium">
+                <p>© 2026 TimesPro. A Times Group Initiative. All rights reserved.</p>
+                <div class="flex gap-6 uppercase tracking-widest">
+                    <a href="#" class="hover:text-white transition-colors border-b border-transparent hover:border-white">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors border-b border-transparent hover:border-white">Terms of Service</a>
+                    <a href="#contact-info" class="hover:text-white transition-colors border-b border-transparent hover:border-white">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- ════════════════════════════════════════════
          SCRIPTS
          ════════════════════════════════════════════ -->
     <script>
-        // --- 1. Navigation Logic ---
-        const navbar = document.getElementById('navbar');
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
+        // 1. NAV SCROLL SHADOW
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 80) navbar.classList.add('shadow-md');
-            else navbar.classList.remove('shadow-md');
+            document.getElementById('navbar').classList.toggle('shadow-md', window.scrollY > 80);
         });
 
-        mobileMenuBtn.onclick = () => mobileMenu.classList.toggle('hidden');
-
-        // Nav Intersection Observer
-        const navLinks = document.querySelectorAll('.nav-link');
+        // 2. ACTIVE NAV HIGHLIGHTING
         const navObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const id = entry.target.getAttribute('id');
-                    navLinks.forEach(link => {
+                    document.querySelectorAll('.nav-link').forEach(link => {
                         link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
                     });
                 }
@@ -516,31 +973,43 @@
 
         document.querySelectorAll('section[id]').forEach(section => navObserver.observe(section));
 
-        // --- 2. Multi-Step Form Logic ---
+        // 3. MOBILE NAV TOGGLE
+        const mobileNavBtn = document.getElementById('mobile-nav-btn');
+        const mobileNavMenu = document.getElementById('mobile-nav-menu');
+        
+        mobileNavBtn.addEventListener('click', () => {
+            mobileNavMenu.classList.toggle('hidden');
+            // Toggle hamburger icon to X icon
+            const isHidden = mobileNavMenu.classList.contains('hidden');
+            mobileNavBtn.innerHTML = isHidden 
+                ? '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>'
+                : '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>';
+        });
+
+        // 4. MULTI-STEP FORM (Hero)
         let currentStep = 1;
         const totalSteps = 3;
-        const form = document.getElementById('multi-step-form');
-        const formSuccess = document.getElementById('form-success');
-        const toast = document.getElementById('toast');
-        const progressLine = document.getElementById('progress-line');
-
+        
         function updateProgress() {
             const width = ((currentStep - 1) / (totalSteps - 1)) * 100;
-            progressLine.style.width = `${width}%`;
+            document.getElementById('progress-line').style.width = `${width}%`;
             
             document.querySelectorAll('.step-indicator').forEach((ind, i) => {
                 const circle = ind.querySelector('div');
                 const label = ind.querySelector('span');
                 const step = i + 1;
                 
-                if (step <= currentStep) {
-                    circle.classList.replace('bg-gray-200', 'bg-csrgreen');
-                    circle.classList.replace('text-gray-500', 'text-white');
-                    label.classList.replace('text-gray-400', 'text-csrgreen');
-                } else {
-                    circle.classList.replace('bg-csrgreen', 'bg-gray-200');
-                    circle.classList.replace('text-white', 'text-gray-500');
-                    label.classList.replace('text-csrgreen', 'text-gray-400');
+                if (circle) {
+                    if (step <= currentStep) {
+                        circle.className = 'w-10 h-10 rounded-full bg-csrgreen text-white flex items-center justify-center font-bold text-sm z-10';
+                    } else {
+                        circle.className = 'w-10 h-10 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center font-bold text-sm z-10';
+                    }
+                }
+                if (label) {
+                    label.className = step <= currentStep 
+                        ? 'absolute -bottom-6 left-1/2 -translate-x-1/2 w-max text-[10px] font-bold uppercase tracking-wider text-csrgreen'
+                        : 'absolute -bottom-6 left-1/2 -translate-x-1/2 w-max text-[10px] font-bold uppercase tracking-wider text-gray-400';
                 }
             });
         }
@@ -561,7 +1030,7 @@
             return valid;
         }
 
-        function nextStep(step) {
+        window.nextStep = function(step) {
             if (!validateStep(step)) return;
             
             const currentDiv = document.getElementById(`form-step-${step}`);
@@ -577,7 +1046,7 @@
             }, 300);
         }
 
-        function prevStep(step) {
+        window.prevStep = function(step) {
             const currentDiv = document.getElementById(`form-step-${step}`);
             const prevDiv = document.getElementById(`form-step-${step - 1}`);
             
@@ -587,97 +1056,149 @@
             updateProgress();
         }
 
-        form.onsubmit = (e) => {
+        document.getElementById('multi-step-form').onsubmit = (e) => {
             e.preventDefault();
             document.getElementById('form-step-3').classList.replace('step-active', 'hidden');
-            formSuccess.classList.remove('hidden');
-            toast.classList.add('toast-active');
-            setTimeout(() => toast.classList.remove('toast-active'), 5000);
+            document.getElementById('form-success').classList.remove('hidden');
+            showToast('✓ Request received! Our CSR team will reach out within 24 hours.');
         };
 
-        // --- 3. Intersection Observer for Reveal-on-Scroll & Counters ---
-        const scrollRevealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                    // If it's a stat strip, trigger counters inside it
-                    if (entry.target.querySelector('.counter-csr')) {
-                        entry.target.querySelectorAll('.counter-csr').forEach(el => triggerCounter(el));
+        // 5. TOAST NOTIFICATION
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-6 right-6 bg-csrgreen text-white px-6 py-4 rounded-2xl shadow-xl z-[200] flex items-center gap-3 transform translate-x-full transition-transform duration-500';
+            toast.style.backgroundColor = '#1A6B3A'; // Ensure CSR Green
+            toast.innerHTML = `<svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>${message}</span>`;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.classList.add('translate-x-0'), 50);
+            setTimeout(() => {
+                toast.classList.replace('translate-x-0', 'translate-x-full');
+                setTimeout(() => toast.remove(), 500);
+            }, 5000);
+        }
+
+        // 6. COUNTER ANIMATIONS
+        document.querySelectorAll('.counter-csr').forEach(counter => {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const display = counter.dataset.display;
+                        if (display) {
+                            counter.style.transition = 'opacity 0.8s ease';
+                            counter.style.opacity = '0';
+                            setTimeout(() => { counter.textContent = display; counter.style.opacity = '1'; }, 100);
+                        } else {
+                            const target = parseInt(counter.dataset.target);
+                            const suffix = counter.dataset.suffix || '';
+                            const duration = 2000;
+                            const start = performance.now();
+                            const easeOut = t => 1 - Math.pow(1 - t, 4);
+                            function update(now) {
+                                const elapsed = now - start;
+                                const progress = Math.min(elapsed / duration, 1);
+                                counter.textContent = Math.floor(easeOut(progress) * target).toLocaleString('en-IN') + suffix;
+                                if (progress < 1) requestAnimationFrame(update);
+                            }
+                            requestAnimationFrame(update);
+                        }
+                        observer.unobserve(counter);
                     }
-                    scrollRevealObserver.unobserve(entry.target);
+                });
+            }, { threshold: 0.5 });
+            observer.observe(counter);
+        });
+
+        // 7. SCROLL REVEAL (GSAP)
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray('.reveal-on-scroll').forEach((el, i) => {
+            gsap.fromTo(el,
+                { opacity: 0, y: 40 },
+                {
+                    opacity: 1, y: 0,
+                    duration: 0.7,
+                    delay: el.dataset.delay ? parseFloat(el.dataset.delay) : 0,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 85%',
+                        once: true
+                    }
                 }
-            });
-        }, { threshold: 0.15 });
+            );
+        });
 
-        document.querySelectorAll('.reveal-on-scroll').forEach(el => scrollRevealObserver.observe(el));
+        // Hero Entry
+        window.addEventListener('load', () => {
+            gsap.from("#navbar", { y: -100, opacity: 0, duration: 1, ease: "power4.out" });
+            gsap.from("#hero-content", { x: -50, opacity: 0, duration: 1.2, delay: 0.3, ease: "power4.out" });
+            gsap.from("#hero-form-container", { x: 50, opacity: 0, duration: 1.2, delay: 0.5, ease: "power4.out" });
+        });
 
-        function triggerCounter(el) {
-            const target = parseFloat(el.getAttribute('data-target'));
-            const suffix = el.getAttribute('data-suffix') || "";
-            const display = el.getAttribute('data-display');
-
-            if (display) {
-                // Pre-formatted string reveal
-                el.style.opacity = '0';
-                el.innerText = display;
-                setTimeout(() => {
-                    el.style.transition = 'opacity 1s ease';
-                    el.style.opacity = '1';
-                }, 100);
-            } else {
-                animateValue(el, 0, target, 2000, suffix);
-            }
-        }
-
-        function animateValue(obj, start, end, duration, suffix = "") {
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                const easeValue = 1 - Math.pow(1 - progress, 4);
-                obj.innerHTML = Math.floor(easeValue * (end - start) + start).toLocaleString() + suffix;
-                if (progress < 1) window.requestAnimationFrame(step);
-            };
-            window.requestAnimationFrame(step);
-        }
-
-        // --- 4. Solution Filter Logic ---
-        const filterPills = document.querySelectorAll('.filter-pill');
-        const solutionCards = document.querySelectorAll('.solution-card');
-
-        filterPills.forEach(pill => {
+        // 8. SOLUTION FILTER
+        document.querySelectorAll('.filter-pill').forEach(pill => {
             pill.addEventListener('click', () => {
-                // Update active state
-                filterPills.forEach(p => p.classList.remove('active'));
+                document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
                 pill.classList.add('active');
-
                 const filter = pill.dataset.filter;
-                
-                solutionCards.forEach(card => {
+                document.querySelectorAll('.solution-card').forEach(card => {
                     const category = card.dataset.category;
                     if (filter === 'all' || category === filter || category === 'all') {
                         card.style.display = 'block';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'scale(1)';
-                        }, 10);
+                        setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'scale(1)'; }, 10);
                     } else {
                         card.style.opacity = '0';
                         card.style.transform = 'scale(0.95)';
-                        setTimeout(() => {
-                            if (card.style.opacity === '0') card.style.display = 'none';
-                        }, 300);
+                        setTimeout(() => { if (card.style.opacity === '0') card.style.display = 'none'; }, 300);
                     }
                 });
             });
         });
 
-        // --- 5. GSAP Entry Animations ---
-        window.addEventListener('load', () => {
-            gsap.from("#navbar", { y: -100, opacity: 0, duration: 1, ease: "power4.out" });
-            gsap.from("#hero .lg\\:col-span-7", { x: -50, opacity: 0, duration: 1.2, delay: 0.3, ease: "power4.out" });
-            gsap.from("#hero .lg\\:col-span-5", { x: 50, opacity: 0, duration: 1.2, delay: 0.5, ease: "power4.out" });
+        // 9. STORY TABS
+        document.querySelectorAll('.story-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.story-tab').forEach(t => t.classList.remove('active', 'border-csrgreen', 'text-csrgreen'));
+                document.querySelectorAll('.story-tab').forEach(t => t.classList.add('border-transparent', 'text-gray-500'));
+                document.querySelectorAll('.story-panel').forEach(p => p.classList.add('hidden'));
+                
+                tab.classList.remove('border-transparent', 'text-gray-500');
+                tab.classList.add('active', 'border-csrgreen', 'text-csrgreen');
+                document.getElementById('panel-' + tab.dataset.tab).classList.remove('hidden');
+            });
         });
+
+        // 10. FAQ ACCORDION
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const answer = btn.nextElementSibling;
+                const icon = btn.querySelector('.faq-icon');
+                const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+                document.querySelectorAll('.faq-answer').forEach(a => a.style.maxHeight = '0px');
+                document.querySelectorAll('.faq-icon').forEach(i => { i.innerText = '+'; i.style.transform = 'rotate(0deg)'; });
+                if (!isOpen) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    icon.innerText = '−';
+                }
+            });
+        });
+
+        // 11. PROCESS STEP HOVER
+        document.querySelectorAll('.process-step').forEach(step => {
+            step.addEventListener('mouseenter', () => {
+                document.querySelectorAll('.process-step .bg-csrgreen').forEach(c => c.classList.replace('bg-csrgreen', 'bg-gray-300'));
+                step.querySelector('.bg-gray-300').classList.replace('bg-gray-300', 'bg-csrgreen');
+            });
+            step.addEventListener('mouseleave', () => {
+                document.querySelectorAll('.process-step .bg-gray-300').forEach(c => c.classList.replace('bg-gray-300', 'bg-csrgreen'));
+            });
+        });
+
+        // 12. BOTTOM FORM SUBMIT
+        document.getElementById('contact-form').onsubmit = (e) => {
+            e.preventDefault();
+            showToast('✓ Request received! Our CSR team will reach out within 24 hours.');
+            e.target.reset();
+        };
     </script>
 
     <style>
