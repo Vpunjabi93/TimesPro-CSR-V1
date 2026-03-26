@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TimesPro CSR — Empowering Lives Through Education</title>
-    <meta name="description" content="TimesPro CSR Initiatives: Empowering the next generation through education, skill development, and sustainable social impact.">
+    <title>TimesPro | CSR Implementation Partner</title>
+    <meta name="description" content="TimesPro CSR — End-to-end CSR implementation across education, livelihood, women empowerment, and employability. 3.3 Million+ lives impacted. Backed by Times of India Group.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,166 +15,699 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        timesred: '#DA2128',
-                        timesnavy: '#00008C',
-                        timesslate: '#D6D6E7',
-                        timesdark: '#1C1D1F',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Plus Jakarta Sans', 'sans-serif'],
-                    },
-                }
+          theme: {
+            extend: {
+              colors: {
+                timesred: '#DA2128',
+                csrgreen: '#1A6B3A',
+                timesdark: '#1C1D1F',
+                timesslate: '#D6D6E7',
+                csrwarm: '#FAFAF7'
+              },
+              fontFamily: {
+                sans: ['Inter', 'sans-serif'],
+                display: ['Plus Jakarta Sans', 'sans-serif']
+              }
             }
+          }
         }
     </script>
     
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
     <!-- Shared Styles -->
     <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .step-content { transition: transform 0.4s ease, opacity 0.4s ease; }
+        .step-hidden { display: none; transform: translateX(50px); opacity: 0; }
+        .step-active { display: block; transform: translateX(0); opacity: 1; }
+        .step-exit { transform: translateX(-50px); opacity: 0; }
+        
+        /* Nav active link */
+        .nav-link.active { color: #1A6B3A; font-weight: 600; }
+        
+        .toast-active { transform: translateX(0) !important; }
+    </style>
 </head>
 <body class="font-sans text-timesdark bg-white overflow-x-hidden">
 
     <!-- ════════════════════════════════════════════
          NAVIGATION
          ════════════════════════════════════════════ -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-timesslate/40">
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16 lg:h-20">
+            <div class="flex items-center justify-between h-20">
 
                 <!-- Logo -->
                 <a href="#" class="flex items-center shrink-0">
-                    <img src="https://timespro.com/icons/Timespro_logo.svg" alt="TimesPro" class="h-9 w-auto" loading="lazy">
-                    <span class="ml-3 text-timesred text-xs font-bold uppercase tracking-widest border-l border-gray-200 pl-3">CSR</span>
+                    <img src="https://timespro.com/icons/Timespro_logo.svg" alt="TimesPro" class="h-9 w-auto">
+                    <span class="ml-3 text-csrgreen text-xs font-bold uppercase tracking-widest border-l border-gray-200 pl-3">CSR</span>
                 </a>
 
                 <!-- Desktop Nav Links -->
-                <div class="hidden lg:flex items-center gap-8">
-                    <a href="#impact" class="text-sm font-medium text-timesdark/70 hover:text-timesnavy transition-colors duration-200">Our Impact</a>
-                    <a href="#initiatives" class="text-sm font-medium text-timesdark/70 hover:text-timesnavy transition-colors duration-200">Initiatives</a>
-                    <a href="#stories" class="text-sm font-medium text-timesdark/70 hover:text-timesnavy transition-colors duration-200">Success Stories</a>
-                    <a href="#collaborate" class="cta-btn inline-flex items-center px-6 py-2.5 bg-timesred text-white text-sm font-semibold rounded-full hover:bg-red-700 transition-colors duration-200 shadow-lg shadow-timesred/20">
-                        Work With Us
-                    </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#impact" class="nav-link text-sm font-medium text-gray-600 hover:text-csrgreen transition-colors">Our Impact</a>
+                    <a href="#solutions" class="nav-link text-sm font-medium text-gray-600 hover:text-csrgreen transition-colors">CSR Solutions</a>
+                    <a href="#process" class="nav-link text-sm font-medium text-gray-600 hover:text-csrgreen transition-colors">Our Process</a>
+                    <a href="#why-us" class="nav-link text-sm font-medium text-gray-600 hover:text-csrgreen transition-colors">Why Us</a>
+                    <a href="#contact" class="bg-csrgreen text-white text-sm font-semibold rounded-full px-6 py-2.5 hover:bg-[#0f4a27] transition-all">Talk to Our CSR Team</a>
                 </div>
 
-                <!-- Mobile: Hamburger Toggle -->
-                <input type="checkbox" id="nav-toggle" class="sr-only peer" />
-                <label for="nav-toggle" class="lg:hidden cursor-pointer p-2 -mr-2 relative z-50" aria-label="Toggle navigation">
-                    <div class="hamburger flex flex-col gap-[6px] w-6">
-                        <span class="block h-[2px] w-full bg-timesdark rounded-full origin-center"></span>
-                        <span class="block h-[2px] w-full bg-timesdark rounded-full"></span>
-                        <span class="block h-[2px] w-full bg-timesdark rounded-full origin-center"></span>
-                    </div>
-                </label>
+                <!-- Mobile Toggle -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-timesdark focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
 
-                <!-- Mobile Menu -->
-                <div class="mobile-menu absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b border-timesslate/30 shadow-xl lg:hidden">
-                    <div class="flex flex-col px-6 py-6 gap-4">
-                        <a href="#impact" class="text-base font-medium text-timesdark/80 hover:text-timesnavy py-2 border-b border-timesslate/20">Our Impact</a>
-                        <a href="#initiatives" class="text-base font-medium text-timesdark/80 hover:text-timesnavy py-2 border-b border-timesslate/20">Initiatives</a>
-                        <a href="#stories" class="text-base font-medium text-timesdark/80 hover:text-timesnavy py-2 border-b border-timesslate/20">Success Stories</a>
-                        <a href="#collaborate" class="cta-btn inline-flex items-center justify-center px-6 py-3 bg-timesred text-white text-sm font-semibold rounded-full mt-2">
-                            Work With Us
-                        </a>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-white border-b border-gray-100 shadow-lg px-6 py-6 flex flex-col gap-4 md:hidden">
+            <a href="#impact" class="text-base font-medium text-gray-600">Our Impact</a>
+            <a href="#solutions" class="text-base font-medium text-gray-600">CSR Solutions</a>
+            <a href="#process" class="text-base font-medium text-gray-600">Our Process</a>
+            <a href="#why-us" class="text-base font-medium text-gray-600">Why Us</a>
+            <a href="#contact" class="bg-csrgreen text-white font-semibold rounded-full px-6 py-3 text-center">Talk to Our CSR Team</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- ════════════════════════════════════════════
+             HERO SECTION — Multi-Step Form
+             ════════════════════════════════════════════ -->
+        <section class="bg-csrwarm bg-grid-pattern relative min-h-screen flex items-center pt-32 pb-16 px-4">
+            <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- LEFT CARD: Hero Copy + Form -->
+                <div class="lg:col-span-7 bg-white border-l-4 border-csrgreen rounded-2xl shadow-sm p-8 lg:p-10">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="w-8 h-px bg-csrgreen"></span>
+                        <span class="text-xs font-bold uppercase tracking-widest text-csrgreen">CSR IMPLEMENTATION</span>
+                    </div>
+
+                    <h1 class="font-display font-bold text-4xl lg:text-6xl leading-[1.1] text-timesdark mb-6">
+                        Your CSR Spend Should Change Lives. <span class="text-csrgreen">We Make Sure It Does.</span>
+                    </h1>
+
+                    <p class="text-lg text-gray-600 leading-relaxed mb-10 max-w-2xl">
+                        TimesPro helps India's leading organisations design, implement, and measure CSR programmes that create real, lasting impact — across education, livelihood, women empowerment, and employability. Backed by the Times of India Group.
+                    </p>
+
+                    <!-- Multi-Step Form Container -->
+                    <div id="csr-form-container" class="bg-gray-50 rounded-2xl p-6 lg:p-8 border border-gray-100 relative overflow-hidden">
+                        
+                        <!-- Progress Bar -->
+                        <div class="flex items-center justify-between mb-8 relative">
+                            <div class="absolute top-4 left-0 w-full h-px bg-gray-200 -z-0"></div>
+                            <div id="progress-line" class="absolute top-4 left-0 h-px bg-csrgreen -z-0 transition-all duration-300" style="width: 0%;"></div>
+                            
+                            <div class="step-indicator group flex flex-col items-center relative z-10" data-step="1">
+                                <div class="w-8 h-8 rounded-full bg-csrgreen text-white flex items-center justify-center font-bold text-sm mb-2 transition-colors">1</div>
+                                <span class="text-[10px] uppercase font-bold tracking-wider text-csrgreen">You</span>
+                            </div>
+                            <div class="step-indicator group flex flex-col items-center relative z-10" data-step="2">
+                                <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center font-bold text-sm mb-2 transition-colors">2</div>
+                                <span class="text-[10px] uppercase font-bold tracking-wider text-gray-400">Your Org</span>
+                            </div>
+                            <div class="step-indicator group flex flex-col items-center relative z-10" data-step="3">
+                                <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center font-bold text-sm mb-2 transition-colors">3</div>
+                                <span class="text-[10px] uppercase font-bold tracking-wider text-gray-400">Your Goals</span>
+                            </div>
+                        </div>
+
+                        <!-- Form Steps -->
+                        <form id="multi-step-form" class="relative">
+                            
+                            <!-- Step 1 -->
+                            <div id="form-step-1" class="step-content step-active">
+                                <h3 class="font-semibold text-timesdark mb-6">Tell us about you</h3>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                                    <input type="text" name="full_name" placeholder="Full Name" required class="form-input">
+                                    <input type="email" name="work_email" placeholder="Work Email" required class="form-input">
+                                </div>
+                                <input type="tel" name="phone" placeholder="Phone Number" required class="form-input mb-6">
+                                <button type="button" onclick="nextStep(1)" class="w-full bg-csrgreen text-white font-bold py-3.5 rounded-xl hover:bg-[#0f4a27] transition-all">Next Step →</button>
+                            </div>
+
+                            <!-- Step 2 -->
+                            <div id="form-step-2" class="step-content step-hidden">
+                                <h3 class="font-semibold text-timesdark mb-6">About your organisation</h3>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                                    <input type="text" name="org_name" placeholder="Organisation Name" required class="form-input">
+                                    <input type="text" name="designation" placeholder="Designation" class="form-input">
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                                    <select name="company_size" class="form-input">
+                                        <option value="" disabled selected>Company Size</option>
+                                        <option>Under 500</option>
+                                        <option>500–2000</option>
+                                        <option>2000–10000</option>
+                                        <option>10000+</option>
+                                    </select>
+                                    <select name="budget" class="form-input">
+                                        <option value="" disabled selected>CSR Budget Range</option>
+                                        <option>Under ₹25L</option>
+                                        <option>₹25L–₹1Cr</option>
+                                        <option>₹1Cr–₹5Cr</option>
+                                        <option>₹5Cr+</option>
+                                    </select>
+                                </div>
+                                <div class="flex gap-4">
+                                    <button type="button" onclick="prevStep(2)" class="w-1/3 bg-white border border-csrgreen text-csrgreen font-bold py-3.5 rounded-xl transition-all">← Back</button>
+                                    <button type="button" onclick="nextStep(2)" class="w-2/3 bg-csrgreen text-white font-bold py-3.5 rounded-xl transition-all">Next Step →</button>
+                                </div>
+                            </div>
+
+                            <!-- Step 3 -->
+                            <div id="form-step-3" class="step-content step-hidden">
+                                <h3 class="font-semibold text-timesdark mb-6">Your CSR goals</h3>
+                                <select name="focus_area" class="form-input mb-4">
+                                    <option value="" disabled selected>Primary CSR Focus Area</option>
+                                    <option>Education & Literacy</option>
+                                    <option>Livelihood & Skilling</option>
+                                    <option>Women Empowerment</option>
+                                    <option>Employability & Youth</option>
+                                    <option>Not Sure Yet — Help Me Plan</option>
+                                </select>
+                                <textarea name="message" rows="3" placeholder="Tell us about your mandate and target communities" class="form-input mb-6"></textarea>
+                                <div class="flex gap-4">
+                                    <button type="button" onclick="prevStep(3)" class="w-1/4 bg-white border border-csrgreen text-csrgreen font-bold py-3.5 rounded-xl transition-all">← Back</button>
+                                    <button type="submit" class="w-3/4 bg-csrgreen text-white font-bold py-3.5 rounded-xl transition-all">Request Consultation</button>
+                                </div>
+                                <p class="text-[10px] text-gray-400 text-center mt-4 uppercase tracking-widest leading-relaxed">No commitment required. We respond within 24 hours.</p>
+                            </div>
+                        </form>
+
+                        <!-- Success State -->
+                        <div id="form-success" class="hidden text-center py-10 animate-fade-in">
+                            <div class="w-20 h-20 bg-csrgreen/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-10 h-10 text-csrgreen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-display font-bold text-2xl text-timesdark mb-3">Thank you!</h3>
+                            <p class="text-gray-500 max-w-sm mx-auto">Our CSR specialist will reach out within 24 hours to discuss your mandate.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT CARD: Stats & Image -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-csrgreen to-[#0f4a27] text-white rounded-3xl p-8 lg:p-10 relative overflow-hidden shadow-2xl h-full flex flex-col justify-between group">
+                    <!-- Background Image Overlay -->
+                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=600&h=700" alt="Social Impact" class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay transition-transform duration-700 group-hover:scale-105">
+                    
+                    <div class="relative z-10 space-y-12">
+                        <!-- Stat 1 -->
+                        <div class="border-b border-white/20 pb-10">
+                            <div class="counter-csr text-5xl lg:text-6xl font-display font-bold mb-2" data-target="3.3" data-suffix=" Million+" data-type="direct">3.3 Million+</div>
+                            <p class="text-white/70 font-medium">Lives Impacted Nationwide</p>
+                        </div>
+
+                        <!-- Stat 2 -->
+                        <div class="border-b border-white/20 pb-10">
+                            <div class="counter-csr text-5xl lg:text-6xl font-display font-bold mb-2" data-target="200" data-suffix="+">0</div>
+                            <p class="text-white/70 font-medium">Corporate Implementation Partners</p>
+                        </div>
+
+                        <!-- Stat 3 -->
+                        <div>
+                            <div class="counter-csr text-5xl lg:text-6xl font-display font-bold mb-2" data-target="180" data-suffix="+">0</div>
+                            <p class="text-white/70 font-medium">Years of Times Group Legacy</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 pt-8 border-t border-white/20 relative z-10 flex items-center justify-between">
+                        <span class="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-white/50">Registered with NSDC</span>
+                        <span class="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-white/50 text-right">Times of India Group Initiative</span>
                     </div>
                 </div>
             </div>
-        </nav>
-    </header>
+        </section>
 
         <!-- ════════════════════════════════════════════
-             SECTION 2 — IMPACT AT A GLANCE
+             SECTION 2 — OUR IMPACT
              ════════════════════════════════════════════ -->
-        <section id="impact" class="py-16 lg:py-24 bg-gray-50">
+        <section id="impact" class="bg-csrwarm py-24 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll opacity-0 translate-y-8">
+                    <div class="flex items-center justify-center gap-3 mb-5">
+                        <span class="w-8 h-[3px] bg-csrgreen rounded-full"></span>
+                        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-csrgreen">Our Impact</span>
+                        <span class="w-8 h-[3px] bg-csrgreen rounded-full"></span>
+                    </div>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-timesdark leading-tight mb-6 font-display">
+                        Measurable Change. <span class="text-csrgreen">Millions of Lives.</span>
+                    </h2>
+                    <p class="text-gray-500 text-lg">
+                        We don't just implement programmes; we translate your CSR mandate into validated social capital through rigorous monitoring and outcome-based delivery.
+                    </p>
+                </div>
+
+                <!-- 5-Stat Strip -->
+                <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700">
+                    <div class="bg-white border border-timesslate/30 rounded-3xl py-12 px-8 shadow-xl shadow-csrgreen/5">
+                        <div class="grid grid-cols-2 lg:grid-cols-5 gap-y-12 lg:gap-0 text-center">
+                            <!-- Stat 1 -->
+                            <div class="lg:border-r border-gray-100 px-4">
+                                <span class="counter-csr font-display font-bold text-4xl text-csrgreen block mb-2" data-target="200" data-suffix="+">0</span>
+                                <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Companies Partnered</span>
+                            </div>
+                            <!-- Stat 2 -->
+                            <div class="lg:border-r border-gray-100 px-4">
+                                <span class="counter-csr font-display font-bold text-4xl text-csrgreen block mb-2" data-target="3.3" data-display="3.3 Million+">3.3 Million+</span>
+                                <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Lives Impacted</span>
+                            </div>
+                            <!-- Stat 3 -->
+                            <div class="lg:border-r border-gray-100 px-4">
+                                <span class="counter-csr font-display font-bold text-4xl text-csrgreen block mb-2" data-target="1500" data-suffix="+">0</span>
+                                <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Programmes Delivered</span>
+                            </div>
+                            <!-- Stat 4 -->
+                            <div class="lg:border-r border-gray-100 px-4">
+                                <span class="counter-csr font-display font-bold text-4xl text-csrgreen block mb-2" data-target="28" data-suffix="">0</span>
+                                <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">States Covered</span>
+                            </div>
+                            <!-- Stat 5 -->
+                            <div class="px-4">
+                                <span class="counter-csr font-display font-bold text-4xl text-csrgreen block mb-2" data-target="100000" data-suffix="+">0</span>
+                                <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Beneficiaries Annually</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════
+             SECTION 3 — THE PROBLEM
+             ════════════════════════════════════════════ -->
+        <section id="problem" class="bg-white py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 <!-- Section Header -->
-                <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll opacity-0 translate-y-8">
                     <div class="flex items-center justify-center gap-3 mb-5">
-                        <span class="w-8 h-[3px] bg-timesred rounded-full"></span>
-                        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-timesred">Our Footprint</span>
-                        <span class="w-8 h-[3px] bg-timesred rounded-full"></span>
+                        <span class="w-8 h-[3px] bg-csrgreen rounded-full"></span>
+                        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-csrgreen">The Challenge</span>
+                        <span class="w-8 h-[3px] bg-csrgreen rounded-full"></span>
                     </div>
-                    <h2 class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-timesdark leading-tight">
-                        Impact That Echoes Beyond Metrics.
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-timesdark leading-tight font-display">
+                        High Spend. <span class="text-csrgreen">Low Visibility?</span>
                     </h2>
                 </div>
 
-                <!-- Stats Strip -->
-                <div class="bg-white border border-timesslate/30 rounded-2xl py-8 px-8 shadow-sm">
-                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-y-10 lg:gap-0 text-center">
-                        <div class="lg:border-r border-gray-100 lg:px-4">
-                            <span class="font-heading font-bold text-3xl lg:text-4xl text-timesnavy block mb-1">50,000+</span>
-                            <span class="text-[10px] uppercase tracking-widest text-gray-400 font-semibold">Scholarships Awarded</span>
+                <!-- 3-Tile Persona Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Tile 1 -->
+                    <div class="reveal-on-scroll opacity-0 translate-y-8 group bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" style="transition-delay: 0ms">
+                        <div class="h-44 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=600&h=300" alt="Strategy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
-                        <div class="lg:border-r border-gray-100 lg:px-4">
-                            <span class="font-heading font-bold text-3xl lg:text-4xl text-timesnavy block mb-1">100+</span>
-                            <span class="text-[10px] uppercase tracking-widest text-gray-400 font-semibold">Rural Learning Centers</span>
+                        <div class="p-8">
+                            <div class="inline-block bg-timesnavy text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">For CHROs</div>
+                            <h3 class="font-display font-bold text-xl text-timesdark mb-4 group-hover:text-csrgreen transition-colors">Fragmented Social Initiatives</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed mb-6">Many organisations struggle with scattered projects that lack a cohesive narrative. Your CSR should be as strategic as your business.</p>
+                            <a href="#solutions" class="text-csrgreen font-bold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all underline decoration-csrgreen/30 decoration-2 underline-offset-4">Learn More →</a>
                         </div>
-                        <div class="lg:border-r border-gray-100 lg:px-4">
-                            <span class="font-heading font-bold text-3xl lg:text-4xl text-timesnavy block mb-1">15+</span>
-                            <span class="text-[10px] uppercase tracking-widest text-gray-400 font-semibold">States Reached</span>
+                    </div>
+                    <!-- Tile 2 -->
+                    <div class="reveal-on-scroll opacity-0 translate-y-8 group bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" style="transition-delay: 150ms">
+                        <div class="h-44 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600&h=300" alt="Implementation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
-                        <div class="lg:px-4">
-                            <span class="font-heading font-bold text-3xl lg:text-4xl text-timesnavy block mb-1">92%</span>
-                            <span class="text-[10px] uppercase tracking-widest text-gray-400 font-semibold">Placement Success</span>
+                        <div class="p-8">
+                            <div class="inline-block bg-csrgreen text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">For CSR Heads</div>
+                            <h3 class="font-display font-bold text-xl text-timesdark mb-4 group-hover:text-csrgreen transition-colors">The Implementation Gap</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed mb-6">Bridging the gap between a board-approved mandate and on-ground reality requires local expertise and institutional-grade delivery.</p>
+                            <a href="#solutions" class="text-csrgreen font-bold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all underline decoration-csrgreen/30 decoration-2 underline-offset-4">Learn More →</a>
+                        </div>
+                    </div>
+                    <!-- Tile 3 -->
+                    <div class="reveal-on-scroll opacity-0 translate-y-8 group bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" style="transition-delay: 300ms">
+                        <div class="h-44 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=600&h=300" alt="ROI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-8">
+                            <div class="inline-block bg-timesdark text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">For Boards</div>
+                            <h3 class="font-display font-bold text-xl text-timesdark mb-4 group-hover:text-csrgreen transition-colors">Lack of Measurable ROI</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed mb-6">Struggling to demonstrate the SROI (Social Return on Investment)? We provide data-backed reporting and impact transparency.</p>
+                            <a href="#solutions" class="text-csrgreen font-bold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all underline decoration-csrgreen/30 decoration-2 underline-offset-4">Learn More →</a>
                         </div>
                     </div>
                 </div>
 
+                <div class="text-center mt-16 reveal-on-scroll opacity-0 translate-y-8">
+                    <a href="#solutions" class="inline-flex items-center gap-2 text-csrgreen font-extrabold hover:gap-4 transition-all">
+                        See How TimesPro Delivers Impact <span class="text-2xl">→</span>
+                    </a>
+                </div>
             </div>
         </section>
 
         <!-- ════════════════════════════════════════════
-             SECTION 3 — EDUCATION PARTNERS
+             SECTION 4 — CSR SOLUTIONS
              ════════════════════════════════════════════ -->
-        <section class="py-12 bg-white border-b border-gray-100">
+        <section id="solutions" class="bg-csrwarm py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <p class="text-center text-xs font-bold uppercase tracking-[0.3em] text-gray-400 mb-8">Supported by Leading Educational Institutions</p>
                 
-                <div class="marquee-container relative overflow-hidden py-4">
-                    <div class="marquee-content flex items-center min-w-max" style="animation: marquee 40s linear infinite;">
-                        <!-- SET 1 -->
-                        <img src="https://www.iimcal.ac.in/sites/default/files/logo.png" alt="IIM Calcutta" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
-                        <img src="https://www.iimk.ac.in/images/logo2.png" alt="IIM Kozhikode" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
-                        <img src="https://www.iiml.ac.in/sites/default/files/logo_1.png" alt="IIM Lucknow" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
-                        <img src="https://www.iimkashipur.ac.in/uploads/site-logo/168492717047.png" alt="IIM Kashipur" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
-                        <img src="https://cmsredesign.channeli.in/library/assets/images/iitrLogo.png" alt="IIT Roorkee" class="h-12 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
-                        <img src="https://home.iitd.ac.in/images/logo-iit.png" alt="IIT Delhi" class="h-12 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
-                        <img src="https://www.nus.edu.sg/images/default-source/base/logo.png" alt="NUS Singapore" class="h-8 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
-                        <img src="https://noirlab.edu/public/media/archives/logos/original_trans/logo031.png" alt="INSEAD" class="h-8 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
-                        <img src="https://www.mica.ac.in/wp-content/uploads/2025/03/MICA-LOGO-1.svg" alt="MICA" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
-                        <img src="https://api.xlri.edu/xlri-75-logo.svg" alt="XLRI" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
-                        
-                        <!-- SET 2 -->
-                        <img src="https://www.iimcal.ac.in/sites/default/files/logo.png" alt="IIM Calcutta" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
-                        <img src="https://www.iimk.ac.in/images/logo2.png" alt="IIM Kozhikode" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
-                        <img src="https://www.iiml.ac.in/sites/default/files/logo_1.png" alt="IIM Lucknow" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
-                        <img src="https://www.iimkashipur.ac.in/uploads/site-logo/168492717047.png" alt="IIM Kashipur" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
-                        <img src="https://cmsredesign.channeli.in/library/assets/images/iitrLogo.png" alt="IIT Roorkee" class="h-12 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
-                        <img src="https://home.iitd.ac.in/images/logo-iit.png" alt="IIT Delhi" class="h-12 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
-                        <img src="https://www.nus.edu.sg/images/default-source/base/logo.png" alt="NUS Singapore" class="h-8 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
-                        <img src="https://noirlab.edu/public/media/archives/logos/original_trans/logo031.png" alt="INSEAD" class="h-8 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
-                        <img src="https://www.mica.ac.in/wp-content/uploads/2025/03/MICA-LOGO-1.svg" alt="MICA" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
-                        <img src="https://api.xlri.edu/xlri-75-logo.svg" alt="XLRI" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll opacity-0 translate-y-8">
+                    <div class="flex items-center justify-center gap-3 mb-5">
+                        <span class="w-8 h-[3px] bg-csrgreen rounded-full"></span>
+                        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-csrgreen">Our Solutions</span>
+                        <span class="w-8 h-[3px] bg-csrgreen rounded-full"></span>
+                    </div>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-timesdark leading-tight font-display mb-6">
+                        End-to-End <span class="text-csrgreen">Strategic CSR.</span>
+                    </h2>
+                    <p class="text-gray-500 text-lg">We offer turnkey implementation across diverse social sectors, backed by institutional heritage.</p>
+                </div>
+
+                <!-- Filter Pills -->
+                <div class="flex flex-wrap gap-3 justify-center mb-12 reveal-on-scroll opacity-0 translate-y-8" id="solution-filters">
+                    <button class="filter-pill active" data-filter="all">All Solutions</button>
+                    <button class="filter-pill" data-filter="education">Education & Literacy</button>
+                    <button class="filter-pill" data-filter="women">Women Empowerment</button>
+                    <button class="filter-pill" data-filter="youth">Youth & Employability</button>
+                    <button class="filter-pill" data-filter="entrepreneurship">Entrepreneurship</button>
+                    <button class="filter-pill" data-filter="assessment">Impact Assessment</button>
+                </div>
+
+                <!-- Solution Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="solution-grid">
+                    <!-- Card 1 (General Implementation) -->
+                    <div class="solution-card reveal-on-scroll opacity-0 translate-y-8 bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500" data-category="all" style="transition-delay: 0ms">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=600&h=300" alt="CSR Strategy" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-display font-bold text-xl text-timesdark mb-3">Strategic Mandate Planning</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed mb-6">Aligning your corporate values with social needs to create a long-term, sustainable impact roadmap.</p>
+                            <div class="w-full h-px bg-gray-100 mb-6"></div>
+                            <span class="text-xs font-bold text-csrgreen uppercase tracking-widest">Core Service</span>
+                        </div>
+                    </div>
+                    <!-- Card 2 (Education) -->
+                    <div class="solution-card reveal-on-scroll opacity-0 translate-y-8 bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500" data-category="education" style="transition-delay: 150ms">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1524178232363-1fb28f74b50a?auto=format&fit=crop&q=80&w=600&h=300" alt="Education" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-display font-bold text-xl text-timesdark mb-3">Education & Literacy</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed mb-6">Setting up rural learning centers, digital classrooms, and scholarship programmes for underserved children.</p>
+                            <div class="w-full h-px bg-gray-100 mb-6"></div>
+                            <span class="text-xs font-bold text-csrgreen uppercase tracking-widest">Primary Focus</span>
+                        </div>
+                    </div>
+                    <!-- Card 3 (Women Empowerment) -->
+                    <div class="solution-card reveal-on-scroll opacity-0 translate-y-8 bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500" data-category="women" style="transition-delay: 300ms">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=600&h=300" alt="Women" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-display font-bold text-xl text-timesdark mb-3">Women Empowerment</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed mb-6">Skill development for women entrepreneurs and financial literacy workshops to foster independence.</p>
+                            <div class="w-full h-px bg-gray-100 mb-6"></div>
+                            <span class="text-xs font-bold text-csrgreen uppercase tracking-widest">Social Impact</span>
+                        </div>
+                    </div>
+                    <!-- Card 4 (Youth/Employability) -->
+                    <div class="solution-card reveal-on-scroll opacity-0 translate-y-8 bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500" data-category="youth" style="transition-delay: 0ms">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600&h=300" alt="Youth" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-display font-bold text-xl text-timesdark mb-3">Youth & Employability</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed mb-6">Job-oriented skill training and placement support for youth from marginalized backgrounds.</p>
+                            <div class="w-full h-px bg-gray-100 mb-6"></div>
+                            <span class="text-xs font-bold text-csrgreen uppercase tracking-widest">Skilling</span>
+                        </div>
+                    </div>
+                    <!-- Card 5 (Entrepreneurship) -->
+                    <div class="solution-card reveal-on-scroll opacity-0 translate-y-8 bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500" data-category="entrepreneurship" style="transition-delay: 150ms">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1454165833767-02acd0579e00?auto=format&fit=crop&q=80&w=600&h=300" alt="Entrepreneurship" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-display font-bold text-xl text-timesdark mb-3">Entrepreneurship Devel.</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed mb-6">Incubation support and mentorship for micro-entrepreneurs in emerging sectors.</p>
+                            <div class="w-full h-px bg-gray-100 mb-6"></div>
+                            <span class="text-xs font-bold text-csrgreen uppercase tracking-widest">Livelihood</span>
+                        </div>
+                    </div>
+                    <!-- Card 6 (Assessment) -->
+                    <div class="solution-card reveal-on-scroll opacity-0 translate-y-8 bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500" data-category="assessment" style="transition-delay: 300ms">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=600&h=300" alt="Assessment" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-display font-bold text-xl text-timesdark mb-3">Impact Assessment</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed mb-6">Rigorous monitoring and evaluation using globally recognized impact measurement frameworks.</p>
+                            <div class="w-full h-px bg-gray-100 mb-6"></div>
+                            <span class="text-xs font-bold text-csrgreen uppercase tracking-widest">Transparency</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-    <!-- FOOTER Placeholder -->
-    <footer class="bg-timesdark py-12 border-t-2 border-timesred">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
-            <a href="#" class="flex items-center justify-center sm:justify-start shrink-0 mb-6">
-                <img src="https://timespro.com/icons/Timespro_logo.svg" alt="TimesPro" class="h-8 w-auto" style="filter: brightness(0) invert(1);" loading="lazy">
-                <span class="ml-3 text-timesred text-xs font-bold uppercase tracking-widest border-l border-white/20 pl-3">CSR</span>
-            </a>
-            <p class="text-white/40 text-sm">© 2026 TimesPro CSR Initiative. All Rights Reserved.</p>
-        </div>
-    </footer>
+    </main>
 
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-8 right-8 bg-csrgreen text-white px-8 py-5 rounded-2xl shadow-2xl z-[100] translate-x-[200%] transition-transform duration-500 flex items-center gap-4">
+        <svg class="w-6 h-6 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+        <p class="font-bold">✓ Request received! We'll reach out within 24 hours.</p>
+    </div>
+
+    <!-- ════════════════════════════════════════════
+         SCRIPTS
+         ════════════════════════════════════════════ -->
+    <script>
+        // --- 1. Navigation Logic ---
+        const navbar = document.getElementById('navbar');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) navbar.classList.add('shadow-md');
+            else navbar.classList.remove('shadow-md');
+        });
+
+        mobileMenuBtn.onclick = () => mobileMenu.classList.toggle('hidden');
+
+        // Nav Intersection Observer
+        const navLinks = document.querySelectorAll('.nav-link');
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                    });
+                }
+            });
+        }, { threshold: 0.4 });
+
+        document.querySelectorAll('section[id]').forEach(section => navObserver.observe(section));
+
+        // --- 2. Multi-Step Form Logic ---
+        let currentStep = 1;
+        const totalSteps = 3;
+        const form = document.getElementById('multi-step-form');
+        const formSuccess = document.getElementById('form-success');
+        const toast = document.getElementById('toast');
+        const progressLine = document.getElementById('progress-line');
+
+        function updateProgress() {
+            const width = ((currentStep - 1) / (totalSteps - 1)) * 100;
+            progressLine.style.width = `${width}%`;
+            
+            document.querySelectorAll('.step-indicator').forEach((ind, i) => {
+                const circle = ind.querySelector('div');
+                const label = ind.querySelector('span');
+                const step = i + 1;
+                
+                if (step <= currentStep) {
+                    circle.classList.replace('bg-gray-200', 'bg-csrgreen');
+                    circle.classList.replace('text-gray-500', 'text-white');
+                    label.classList.replace('text-gray-400', 'text-csrgreen');
+                } else {
+                    circle.classList.replace('bg-csrgreen', 'bg-gray-200');
+                    circle.classList.replace('text-white', 'text-gray-500');
+                    label.classList.replace('text-csrgreen', 'text-gray-400');
+                }
+            });
+        }
+
+        function validateStep(step) {
+            const currentDiv = document.getElementById(`form-step-${step}`);
+            if (!currentDiv) return true;
+            const inputs = currentDiv.querySelectorAll('input[required], select[required]');
+            let valid = true;
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    input.classList.add('border-red-500');
+                    valid = false;
+                } else {
+                    input.classList.remove('border-red-500');
+                }
+            });
+            return valid;
+        }
+
+        function nextStep(step) {
+            if (!validateStep(step)) return;
+            
+            const currentDiv = document.getElementById(`form-step-${step}`);
+            const nextDiv = document.getElementById(`form-step-${step + 1}`);
+            
+            currentDiv.classList.add('step-exit');
+            setTimeout(() => {
+                currentDiv.classList.replace('step-active', 'step-hidden');
+                currentDiv.classList.remove('step-exit');
+                nextDiv.classList.replace('step-hidden', 'step-active');
+                currentStep = step + 1;
+                updateProgress();
+            }, 300);
+        }
+
+        function prevStep(step) {
+            const currentDiv = document.getElementById(`form-step-${step}`);
+            const prevDiv = document.getElementById(`form-step-${step - 1}`);
+            
+            currentDiv.classList.replace('step-active', 'step-hidden');
+            prevDiv.classList.replace('step-hidden', 'step-active');
+            currentStep = step - 1;
+            updateProgress();
+        }
+
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            document.getElementById('form-step-3').classList.replace('step-active', 'hidden');
+            formSuccess.classList.remove('hidden');
+            toast.classList.add('toast-active');
+            setTimeout(() => toast.classList.remove('toast-active'), 5000);
+        };
+
+        // --- 3. Intersection Observer for Reveal-on-Scroll & Counters ---
+        const scrollRevealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    // If it's a stat strip, trigger counters inside it
+                    if (entry.target.querySelector('.counter-csr')) {
+                        entry.target.querySelectorAll('.counter-csr').forEach(el => triggerCounter(el));
+                    }
+                    scrollRevealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => scrollRevealObserver.observe(el));
+
+        function triggerCounter(el) {
+            const target = parseFloat(el.getAttribute('data-target'));
+            const suffix = el.getAttribute('data-suffix') || "";
+            const display = el.getAttribute('data-display');
+
+            if (display) {
+                // Pre-formatted string reveal
+                el.style.opacity = '0';
+                el.innerText = display;
+                setTimeout(() => {
+                    el.style.transition = 'opacity 1s ease';
+                    el.style.opacity = '1';
+                }, 100);
+            } else {
+                animateValue(el, 0, target, 2000, suffix);
+            }
+        }
+
+        function animateValue(obj, start, end, duration, suffix = "") {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const easeValue = 1 - Math.pow(1 - progress, 4);
+                obj.innerHTML = Math.floor(easeValue * (end - start) + start).toLocaleString() + suffix;
+                if (progress < 1) window.requestAnimationFrame(step);
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // --- 4. Solution Filter Logic ---
+        const filterPills = document.querySelectorAll('.filter-pill');
+        const solutionCards = document.querySelectorAll('.solution-card');
+
+        filterPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                // Update active state
+                filterPills.forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+
+                const filter = pill.dataset.filter;
+                
+                solutionCards.forEach(card => {
+                    const category = card.dataset.category;
+                    if (filter === 'all' || category === filter || category === 'all') {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            if (card.style.opacity === '0') card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // --- 5. GSAP Entry Animations ---
+        window.addEventListener('load', () => {
+            gsap.from("#navbar", { y: -100, opacity: 0, duration: 1, ease: "power4.out" });
+            gsap.from("#hero .lg\\:col-span-7", { x: -50, opacity: 0, duration: 1.2, delay: 0.3, ease: "power4.out" });
+            gsap.from("#hero .lg\\:col-span-5", { x: 50, opacity: 0, duration: 1.2, delay: 0.5, ease: "power4.out" });
+        });
+    </script>
+
+    <style>
+        .form-input {
+            width: 100%;
+            border: 1px solid #E5E7EB;
+            border-radius: 0.75rem;
+            padding: 0.75rem 1rem;
+            font-size: 0.875rem;
+            outline: none;
+            transition: all 0.2s;
+            background: white;
+        }
+        .form-input:focus {
+            border-color: #1A6B3A;
+            box-shadow: 0 0 0 3px rgba(26, 107, 58, 0.1);
+        }
+        
+        /* Bg Grid Pattern */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(26, 107, 58, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(26, 107, 58, 0.03) 1px, transparent 1px);
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .animate-fade-in { animation: fade-in 0.5s ease forwards; }
+    </style>
 </body>
 </html>
