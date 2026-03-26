@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimesPro CSR — Empowering Lives Through Education</title>
+    <meta name="description" content="TimesPro CSR Initiatives: Empowering the next generation through education, skill development, and sustainable social impact.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        timesred: '#DA2128',
+                        timesnavy: '#00008C',
+                        timesslate: '#D6D6E7',
+                        timesdark: '#1C1D1F',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-sans text-timesdark bg-white overflow-x-hidden">
+
+    <!-- ════════════════════════════════════════════
+         NAVIGATION
+         ════════════════════════════════════════════ -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-timesslate/40">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+
+                <!-- Logo -->
+                <a href="#" class="flex items-center shrink-0">
+                    <img src="https://timespro.com/icons/Timespro_logo.svg" alt="TimesPro" class="h-9 w-auto" loading="lazy">
+                    <span class="ml-3 text-timesred text-xs font-bold uppercase tracking-widest border-l border-gray-200 pl-3">CSR</span>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="#impact" class="text-sm font-medium text-timesdark/70 hover:text-timesnavy transition-colors duration-200">Our Impact</a>
+                    <a href="#initiatives" class="text-sm font-medium text-timesdark/70 hover:text-timesnavy transition-colors duration-200">Initiatives</a>
+                    <a href="#stories" class="text-sm font-medium text-timesdark/70 hover:text-timesnavy transition-colors duration-200">Success Stories</a>
+                    <a href="#collaborate" class="cta-btn inline-flex items-center px-6 py-2.5 bg-timesred text-white text-sm font-semibold rounded-full hover:bg-red-700 transition-colors duration-200 shadow-lg shadow-timesred/20">
+                        Work With Us
+                    </a>
+                </div>
+
+                <!-- Mobile: Hamburger Toggle -->
+                <input type="checkbox" id="nav-toggle" class="sr-only peer" />
+                <label for="nav-toggle" class="lg:hidden cursor-pointer p-2 -mr-2 relative z-50" aria-label="Toggle navigation">
+                    <div class="hamburger flex flex-col gap-[6px] w-6">
+                        <span class="block h-[2px] w-full bg-timesdark rounded-full origin-center"></span>
+                        <span class="block h-[2px] w-full bg-timesdark rounded-full"></span>
+                        <span class="block h-[2px] w-full bg-timesdark rounded-full origin-center"></span>
+                    </div>
+                </label>
+
+                <!-- Mobile Menu -->
+                <div class="mobile-menu absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b border-timesslate/30 shadow-xl lg:hidden">
+                    <div class="flex flex-col px-6 py-6 gap-4">
+                        <a href="#impact" class="text-base font-medium text-timesdark/80 hover:text-timesnavy py-2 border-b border-timesslate/20">Our Impact</a>
+                        <a href="#initiatives" class="text-base font-medium text-timesdark/80 hover:text-timesnavy py-2 border-b border-timesslate/20">Initiatives</a>
+                        <a href="#stories" class="text-base font-medium text-timesdark/80 hover:text-timesnavy py-2 border-b border-timesslate/20">Success Stories</a>
+                        <a href="#collaborate" class="cta-btn inline-flex items-center justify-center px-6 py-3 bg-timesred text-white text-sm font-semibold rounded-full mt-2">
+                            Work With Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+        <!-- ════════════════════════════════════════════
+             SECTION 2 — IMPACT AT A GLANCE
+             ════════════════════════════════════════════ -->
+        <section id="impact" class="py-16 lg:py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
+                    <div class="flex items-center justify-center gap-3 mb-5">
+                        <span class="w-8 h-[3px] bg-timesred rounded-full"></span>
+                        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-timesred">Our Footprint</span>
+                        <span class="w-8 h-[3px] bg-timesred rounded-full"></span>
+                    </div>
+                    <h2 class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-timesdark leading-tight">
+                        Impact That Echoes Beyond Metrics.
+                    </h2>
+                </div>
+
+                <!-- Stats Strip -->
+                <div class="bg-white border border-timesslate/30 rounded-2xl py-8 px-8 shadow-sm">
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-y-10 lg:gap-0 text-center">
+                        <div class="lg:border-r border-gray-100 lg:px-4">
+                            <span class="font-heading font-bold text-3xl lg:text-4xl text-timesnavy block mb-1">50,000+</span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400 font-semibold">Scholarships Awarded</span>
+                        </div>
+                        <div class="lg:border-r border-gray-100 lg:px-4">
+                            <span class="font-heading font-bold text-3xl lg:text-4xl text-timesnavy block mb-1">100+</span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400 font-semibold">Rural Learning Centers</span>
+                        </div>
+                        <div class="lg:border-r border-gray-100 lg:px-4">
+                            <span class="font-heading font-bold text-3xl lg:text-4xl text-timesnavy block mb-1">15+</span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400 font-semibold">States Reached</span>
+                        </div>
+                        <div class="lg:px-4">
+                            <span class="font-heading font-bold text-3xl lg:text-4xl text-timesnavy block mb-1">92%</span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400 font-semibold">Placement Success</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════
+             SECTION 3 — EDUCATION PARTNERS
+             ════════════════════════════════════════════ -->
+        <section class="py-12 bg-white border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-center text-xs font-bold uppercase tracking-[0.3em] text-gray-400 mb-8">Supported by Leading Educational Institutions</p>
+                
+                <div class="marquee-container relative overflow-hidden py-4">
+                    <div class="marquee-content flex items-center min-w-max" style="animation: marquee 40s linear infinite;">
+                        <!-- SET 1 -->
+                        <img src="https://www.iimcal.ac.in/sites/default/files/logo.png" alt="IIM Calcutta" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
+                        <img src="https://www.iimk.ac.in/images/logo2.png" alt="IIM Kozhikode" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
+                        <img src="https://www.iiml.ac.in/sites/default/files/logo_1.png" alt="IIM Lucknow" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
+                        <img src="https://www.iimkashipur.ac.in/uploads/site-logo/168492717047.png" alt="IIM Kashipur" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
+                        <img src="https://cmsredesign.channeli.in/library/assets/images/iitrLogo.png" alt="IIT Roorkee" class="h-12 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
+                        <img src="https://home.iitd.ac.in/images/logo-iit.png" alt="IIT Delhi" class="h-12 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
+                        <img src="https://www.nus.edu.sg/images/default-source/base/logo.png" alt="NUS Singapore" class="h-8 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
+                        <img src="https://noirlab.edu/public/media/archives/logos/original_trans/logo031.png" alt="INSEAD" class="h-8 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
+                        <img src="https://www.mica.ac.in/wp-content/uploads/2025/03/MICA-LOGO-1.svg" alt="MICA" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
+                        <img src="https://api.xlri.edu/xlri-75-logo.svg" alt="XLRI" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
+                        
+                        <!-- SET 2 -->
+                        <img src="https://www.iimcal.ac.in/sites/default/files/logo.png" alt="IIM Calcutta" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
+                        <img src="https://www.iimk.ac.in/images/logo2.png" alt="IIM Kozhikode" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
+                        <img src="https://www.iiml.ac.in/sites/default/files/logo_1.png" alt="IIM Lucknow" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
+                        <img src="https://www.iimkashipur.ac.in/uploads/site-logo/168492717047.png" alt="IIM Kashipur" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
+                        <img src="https://cmsredesign.channeli.in/library/assets/images/iitrLogo.png" alt="IIT Roorkee" class="h-12 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
+                        <img src="https://home.iitd.ac.in/images/logo-iit.png" alt="IIT Delhi" class="h-12 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
+                        <img src="https://www.nus.edu.sg/images/default-source/base/logo.png" alt="NUS Singapore" class="h-8 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
+                        <img src="https://noirlab.edu/public/media/archives/logos/original_trans/logo031.png" alt="INSEAD" class="h-8 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
+                        <img src="https://www.mica.ac.in/wp-content/uploads/2025/03/MICA-LOGO-1.svg" alt="MICA" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
+                        <img src="https://api.xlri.edu/xlri-75-logo.svg" alt="XLRI" class="h-10 w-auto mx-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- FOOTER Placeholder -->
+    <footer class="bg-timesdark py-12 border-t-2 border-timesred">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
+            <a href="#" class="flex items-center justify-center sm:justify-start shrink-0 mb-6">
+                <img src="https://timespro.com/icons/Timespro_logo.svg" alt="TimesPro" class="h-8 w-auto" style="filter: brightness(0) invert(1);" loading="lazy">
+                <span class="ml-3 text-timesred text-xs font-bold uppercase tracking-widest border-l border-white/20 pl-3">CSR</span>
+            </a>
+            <p class="text-white/40 text-sm">© 2026 TimesPro CSR Initiative. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
