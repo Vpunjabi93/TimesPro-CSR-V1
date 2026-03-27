@@ -40,17 +40,69 @@
     <!-- Shared Styles -->
     <link rel="stylesheet" href="styles.css">
 
-    <style>
-        .step-content { transition: transform 0.4s ease, opacity 0.4s ease; }
-        .step-hidden { display: none; transform: translateX(50px); opacity: 0; }
-        .step-active { display: block; transform: translateX(0); opacity: 1; }
-        .step-exit { transform: translateX(-50px); opacity: 0; }
-        
-        /* Nav active link */
-        .nav-link.active { color: #1A6B3A; font-weight: 600; }
-        
-        .toast-active { transform: translateX(0) !important; }
-    </style>
+        <style>
+            .step-content { transition: transform 0.4s ease, opacity 0.4s ease; }
+            .step-hidden { display: none; transform: translateX(50px); opacity: 0; }
+            .step-active { display: block; transform: translateX(0); opacity: 1; }
+            .step-exit { transform: translateX(-50px); opacity: 0; }
+            
+            /* Nav active link */
+            .nav-link.active { color: #1A6B3A; font-weight: 600; }
+            
+            .toast-active { transform: translateX(0) !important; }
+
+            /* Mobile Horizontal Scroll Patch */
+            @media (max-width: 767px) {
+              .mobile-scroll-row {
+                display: flex !important;
+                flex-direction: row !important;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                gap: 1rem;
+                padding-bottom: 1rem;
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                cursor: grab;
+              }
+              .mobile-scroll-row::-webkit-scrollbar { display: none; }
+              .mobile-scroll-row:active { cursor: grabbing; }
+              .mobile-scroll-row > * {
+                flex: 0 0 82vw !important;
+                max-width: 82vw !important;
+                scroll-snap-align: start;
+              }
+              #solutions-cards > * {
+                flex: 0 0 88vw !important;
+                max-width: 88vw !important;
+              }
+              .scroll-dots {
+                display: flex;
+                justify-content: center;
+                gap: 6px;
+                margin-top: 1rem;
+              }
+              .scroll-dot {
+                width: 6px;
+                height: 6px;
+                border-radius: 9999px;
+                background: #d1d5db;
+                transition: background 0.3s ease, width 0.3s ease;
+              }
+              .scroll-dot.active {
+                background: #DA2128;
+                width: 20px;
+              }
+              .process-grid::before { display: none !important; }
+            }
+
+            @media (min-width: 768px) {
+              .scroll-dots { display: none !important; }
+            }
+        </style>
 </head>
 <body class="font-sans text-timesdark bg-white overflow-x-hidden">
 
@@ -316,7 +368,7 @@
                 </div>
 
                 <!-- 3-Tile Persona Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mobile-scroll-row" id="challenge-cards">
                     <!-- Tile 1 -->
                     <div class="reveal-on-scroll opacity-0 translate-y-8 group bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" style="transition-delay: 0ms">
                         <div class="h-44 overflow-hidden">
@@ -354,6 +406,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="scroll-dots" id="dots-challenge"></div>
 
                 <div class="text-center mt-16 reveal-on-scroll opacity-0 translate-y-8">
                     <a href="#solutions" class="inline-flex items-center gap-2 text-csrgreen font-extrabold hover:gap-4 transition-all">
@@ -393,7 +446,7 @@
                 </div>
 
                 <!-- Solution Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="solution-grid">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mobile-scroll-row" id="solutions-cards">
                     <!-- Card 1 (General Implementation) -->
                     <div class="solution-card reveal-on-scroll opacity-0 translate-y-8 bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500" data-category="all" style="transition-delay: 0ms">
                         <div class="h-48 overflow-hidden">
@@ -467,6 +520,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="scroll-dots" id="dots-solutions"></div>
             </div>
         </section>
 
@@ -489,7 +543,7 @@
                 </div>
 
                 <!-- Interactive Timeline (Desktop) / Cards (Mobile) -->
-                <div class="process-grid relative grid grid-cols-1 md:grid-cols-4 gap-8 mt-16 reveal-on-scroll opacity-0 translate-y-8">
+                <div class="process-grid relative grid grid-cols-1 md:grid-cols-4 gap-8 mt-16 reveal-on-scroll opacity-0 translate-y-8 mobile-scroll-row" id="process-cards">
                     <!-- Step 1 -->
                     <div class="process-step text-center relative cursor-pointer group" data-step="1">
                         <div class="step-number-circle w-14 h-14 rounded-full bg-csrgreen text-white font-bold text-xl flex items-center justify-center mx-auto relative z-10 shadow-lg group-hover:scale-110 transition-all duration-300">1</div>
@@ -535,6 +589,7 @@
                         <p class="text-gray-500 text-sm leading-relaxed mt-2">Impact-first reporting with customised ROI frameworks, learner analytics, and transparency for your board reports.</p>
                     </div>
                 </div>
+                <div class="scroll-dots" id="dots-process"></div>
 
                 <div class="text-center mt-12 reveal-on-scroll opacity-0 translate-y-8">
                     <a href="#contact" class="text-csrgreen font-semibold text-lg hover:underline decoration-2 underline-offset-8">Let's Design Your CSR Programme →</a>
@@ -561,7 +616,7 @@
                 </div>
 
                 <!-- 5 Image-Top Tiles (3+2 Grid) -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 mobile-scroll-row" id="edge-cards">
                     <!-- Tile 1 -->
                     <div class="reveal-on-scroll opacity-0 translate-y-8 bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm transition-all duration-500 hover:shadow-lg" style="transition-delay: 0ms">
                         <div class="h-44">
@@ -591,8 +646,8 @@
                             <h3 class="font-display font-bold text-xl text-timesdark mb-3">Tech-Enabled Learning</h3>
                             <p class="text-gray-500 text-sm leading-relaxed">Leverage our Direct-to-Device (D2D) platform to reach the remotest corners of India with high-quality digital education and skilling.</p>
                         </div>
-                    </div>
                 </div>
+                <div class="scroll-dots" id="dots-edge"></div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                     <!-- Tile 4 -->
                     <div class="reveal-on-scroll opacity-0 translate-y-8 bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm transition-all duration-500 hover:shadow-lg" style="transition-delay: 450ms">
@@ -954,6 +1009,60 @@
          SCRIPTS
          ════════════════════════════════════════════ -->
     <script>
+        // 0. MOBILE SCROLL CAROUSELS
+        function initMobileScrollCarousels() {
+          if (window.innerWidth >= 768) return;
+
+          const carousels = [
+            { rowId: 'edge-cards',      dotsId: 'dots-edge' },
+            { rowId: 'process-cards',   dotsId: 'dots-process' },
+            { rowId: 'challenge-cards', dotsId: 'dots-challenge' },
+            { rowId: 'solutions-cards', dotsId: 'dots-solutions' },
+          ];
+
+          carousels.forEach(({ rowId, dotsId }) => {
+            const row = document.getElementById(rowId);
+            const dotsContainer = document.getElementById(dotsId);
+            if (!row || !dotsContainer) return;
+
+            const cards = Array.from(row.children);
+            const count = cards.length;
+
+            dotsContainer.innerHTML = '';
+            cards.forEach((_, i) => {
+              const dot = document.createElement('span');
+              dot.className = 'scroll-dot' + (i === 0 ? ' active' : '');
+              dotsContainer.appendChild(dot);
+            });
+
+            const dots = dotsContainer.querySelectorAll('.scroll-dot');
+
+            row.addEventListener('scroll', () => {
+              const cardWidth = row.scrollWidth / count;
+              const index = Math.round(row.scrollLeft / cardWidth);
+              dots.forEach((d, i) => d.classList.toggle('active', i === index));
+            }, { passive: true });
+
+            let isDown = false, startX, scrollLeft;
+            row.addEventListener('mousedown', e => {
+              isDown = true;
+              startX = e.pageX - row.offsetLeft;
+              scrollLeft = row.scrollLeft;
+            });
+            row.addEventListener('mouseleave', () => isDown = false);
+            row.addEventListener('mouseup', () => isDown = false);
+            row.addEventListener('mousemove', e => {
+              if (!isDown) return;
+              e.preventDefault();
+              const x = e.pageX - row.offsetLeft;
+              row.scrollLeft = scrollLeft - (x - startX) * 1.5;
+            });
+          });
+        }
+
+        initMobileScrollCarousels();
+        window.addEventListener('resize', initMobileScrollCarousels);
+
         // 1. NAV SCROLL SHADOW
         window.addEventListener('scroll', () => {
             document.getElementById('navbar').classList.toggle('shadow-md', window.scrollY > 80);
